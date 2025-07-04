@@ -8,6 +8,14 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
 
+app.get('/test', async (req, res) => {
+    try {
+        res.status(200).send('OK');
+    } catch (err) {
+        res.status(500).send('Test Server Error');
+    }
+});
+
 app.post('/webhook', async (req, res) => {
     try {
         await webhookPayload(req.body);
