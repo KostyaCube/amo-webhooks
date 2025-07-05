@@ -5,6 +5,7 @@ import { syncBudgetsFromSheet } from './services/budget.service';
 
 const app = express();
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 
@@ -49,7 +50,6 @@ setInterval(async () => {
 //     '123456',
 //     ''
 // ]);
-
 
 //  syncLeadsToGoogleSheets().catch(console.error);
 //  syncBudgetsFromSheet().catch(console.error);
